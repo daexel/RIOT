@@ -11,7 +11,7 @@
  * @{
  *
  * @file
- * @brief       Board specific definitions for the SODAQ SARA AFF boards
+ * @brief       Board specific definitions for the SODAQ SFF boards
  *
  * @author      Kees Bakker <kees@sodaq.com>
  */
@@ -92,58 +92,13 @@ extern "C" {
  * @name    GPS Enable
  * @{
  */
-#define GPS_ENABLE_PIN      GPIO_PIN(PA, 28)
+#define GPS_ENABLE_PIN      GPIO_PIN(PA, 18)
 
 #define GPS_ENABLE_PORT     PORT->Group[PA]
-#define GPS_ENABLE_MASK     (1 << 28)
+#define GPS_ENABLE_MASK     (1 << 18)
 
 #define GPS_ENABLE_ON       (GPS_ENABLE_PORT.OUTSET.reg = GPS_ENABLE_MASK)
 #define GPS_ENABLE_OFF      (GPS_ENABLE_PORT.OUTCLR.reg = GPS_ENABLE_MASK)
-/** @} */
-
-/**
- * @name    NB-IoT SARA module
- * @{
- */
-#define NB_IOT_ENABLE_PIN      GPIO_PIN(PA, 27)
-
-#define NB_IOT_ENABLE_PORT     PORT->Group[PA]
-#define NB_IOT_ENABLE_MASK     (1 << 27)
-
-#define NB_IOT_ENABLE          (NB_IOT_ENABLE_PORT.OUTSET.reg = NB_IOT_ENABLE_MASK)
-#define NB_IOT_DISABLE         (NB_IOT_ENABLE_PORT.OUTCLR.reg = NB_IOT_ENABLE_MASK)
-
-#define NB_IOT_RESET_PIN       GPIO_PIN(PB, 14)
-
-#define NB_IOT_RESET_PORT      PORT->Group[PB]
-#define NB_IOT_RESET_MASK      (1 << 14)
-
-#define NB_IOT_RESET_ON        (NB_IOT_RESET_PORT.OUTSET.reg = NB_IOT_RESET_MASK)
-#define NB_IOT_RESET_OFF       (NB_IOT_RESET_PORT.OUTCLR.reg = NB_IOT_RESET_MASK)
-
-#define NB_IOT_RESET_PIN       GPIO_PIN(PB, 14)
-
-#define NB_IOT_RESET_PORT      PORT->Group[PB]
-#define NB_IOT_RESET_MASK      (1 << 14)
-
-#define NB_IOT_RESET_ON        (NB_IOT_RESET_PORT.OUTSET.reg = NB_IOT_RESET_MASK)
-#define NB_IOT_RESET_OFF       (NB_IOT_RESET_PORT.OUTCLR.reg = NB_IOT_RESET_MASK)
-
-#define NB_IOT_TX_EN_PIN       GPIO_PIN(PB, 13)
-
-#define NB_IOT_TX_EN_PORT      PORT->Group[PB]
-#define NB_IOT_TX_EN_MASK      (1 << 13)
-
-#define NB_IOT_TX_EN_ON        (NB_IOT_TX_EN_PORT.OUTSET.reg = NB_IOT_TX_EN_MASK)
-#define NB_IOT_TX_EN_OFF       (NB_IOT_TX_EN_PORT.OUTCLR.reg = NB_IOT_TX_EN_MASK)
-
-#define NB_IOT_TOGGLE_PIN       GPIO_PIN(PB, 17)
-
-#define NB_IOT_TOGGLE_PORT      PORT->Group[PB]
-#define NB_IOT_TOGGLE_MASK      (1 << 17)
-
-#define NB_IOT_TOGGLE_ON        (NB_IOT_TOGGLE_PORT.OUTSET.reg = NB_IOT_TOGGLE_MASK)
-#define NB_IOT_TOGGLE_OFF       (NB_IOT_TOGGLE_PORT.OUTCLR.reg = NB_IOT_TOGGLE_MASK)
 /** @} */
 
 /**
