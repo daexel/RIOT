@@ -1,0 +1,32 @@
+/**
+ * @defgroup    boards_sodaq-sff SODAQ AFF
+ * @ingroup     boards
+ * @brief       Support for the SODAQ SFF boards
+ *
+ * ### General information
+ *
+ * General information about this board can be found on the
+ * [SODAQ support](http://support.sodaq.com/sodaq-one/sodaq-sara-r410m/)
+ * website.
+ * Schematic can be found [here](https://learn.sodaq.com/Boards/Sara_SFF/sodaq_sara_sff_r2.pdf)
+)
+ *
+ * ### Flash the board
+ *
+ * 1. Put the board in bootloader mode by double tapping the reset button.<br/>
+ *    When the board is in bootloader mode, the user led (green) oscillates
+ *    smoothly.
+ *
+ *
+ * 2. Use `BOARD=sodaq-sff` with the `make` command.<br/>
+ *    Example with `hello-world` application:
+ * ```
+ *      make BOARD=sodaq-sff -C examples/hello-world flash
+ * ```
+ *
+ * ### Accessing STDIO via UART
+ *
+ * To access the STDIO of RIOT, a FTDI to USB converter needs to be plugged to
+ * the RX/TX pins on the board.
+ *
+ */
