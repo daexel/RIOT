@@ -29,11 +29,11 @@ extern "C" {
 /**
  * @brief    GPIO pin configuration
  */
-static const  saul_gpio_params_t saul_gpio_params[] =
+static const saul_gpio_params_t saul_gpio_params[] =
 {
     {
         .name = "LED Green",
-        .pin  = LED_GREEN_PIN,
+        .pin = LED_GREEN_PIN,
         .mode = GPIO_OUT
     },
     {

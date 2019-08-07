@@ -81,32 +81,32 @@ extern "C" {
  */
 static const tc32_conf_t timer_config[] = {
     {   /* Timer 0 - System Clock */
-        .dev            = TC3,
-        .irq            = TC3_IRQn,
-        .pm_mask        = PM_APBCMASK_TC3,
-        .gclk_ctrl      = GCLK_CLKCTRL_ID_TCC2_TC3,
+        .dev = TC3,
+        .irq = TC3_IRQn,
+        .pm_mask = PM_APBCMASK_TC3,
+        .gclk_ctrl = GCLK_CLKCTRL_ID_TCC2_TC3,
 #if CLOCK_USE_PLL || CLOCK_USE_XOSC32_DFLL
-        .gclk_src       = GCLK_CLKCTRL_GEN(1),
-        .prescaler      = TC_CTRLA_PRESCALER_DIV1,
+        .gclk_src = GCLK_CLKCTRL_GEN(1),
+        .prescaler = TC_CTRLA_PRESCALER_DIV1,
 #else
-        .gclk_src       = GCLK_CLKCTRL_GEN(0),
-        .prescaler      = TC_CTRLA_PRESCALER_DIV8,
+        .gclk_src = GCLK_CLKCTRL_GEN(0),
+        .prescaler = TC_CTRLA_PRESCALER_DIV8,
 #endif
-        .flags          = TC_CTRLA_MODE_COUNT16,
+        .flags = TC_CTRLA_MODE_COUNT16,
     },
     {   /* Timer 1 */
-        .dev            = TC4,
-        .irq            = TC4_IRQn,
-        .pm_mask        = PM_APBCMASK_TC4 | PM_APBCMASK_TC5,
-        .gclk_ctrl      = GCLK_CLKCTRL_ID_TC4_TC5,
+        .dev = TC4,
+        .irq = TC4_IRQn,
+        .pm_mask = PM_APBCMASK_TC4 | PM_APBCMASK_TC5,
+        .gclk_ctrl = GCLK_CLKCTRL_ID_TC4_TC5,
 #if CLOCK_USE_PLL || CLOCK_USE_XOSC32_DFLL
-        .gclk_src       = GCLK_CLKCTRL_GEN(1),
-        .prescaler      = TC_CTRLA_PRESCALER_DIV1,
+        .gclk_src = GCLK_CLKCTRL_GEN(1),
+        .prescaler = TC_CTRLA_PRESCALER_DIV1,
 #else
-        .gclk_src       = GCLK_CLKCTRL_GEN(0),
-        .prescaler      = TC_CTRLA_PRESCALER_DIV8,
+        .gclk_src = GCLK_CLKCTRL_GEN(0),
+        .prescaler = TC_CTRLA_PRESCALER_DIV8,
 #endif
-        .flags          = TC_CTRLA_MODE_COUNT32,
+        .flags = TC_CTRLA_MODE_COUNT32,
     }
 };
 
@@ -126,23 +126,23 @@ static const tc32_conf_t timer_config[] = {
  */
 static const uart_conf_t uart_config[] = {
     {
-        .dev      = &SERCOM5->USART,
-        .rx_pin   = GPIO_PIN(PB, 3),    /* AIN11 */
-        .tx_pin   = GPIO_PIN(PB, 2),    /* AIN10 */
-        .mux      = GPIO_MUX_D,
-        .rx_pad   = UART_PAD_RX_1,
-        .tx_pad   = UART_PAD_TX_0,
-        .flags    = UART_FLAG_NONE,
+        .dev = &SERCOM5->USART,
+        .rx_pin = GPIO_PIN(PB, 3),  /* AIN11 */
+        .tx_pin = GPIO_PIN(PB, 2),  /* AIN10 */
+        .mux = GPIO_MUX_D,
+        .rx_pad = UART_PAD_RX_1,
+        .tx_pad = UART_PAD_TX_0,
+        .flags = UART_FLAG_NONE,
         .gclk_src = GCLK_CLKCTRL_GEN_GCLK0
     },
     {
-        .dev      = &SERCOM2->USART,
-        .rx_pin   = GPIO_PIN(PA,13),
-        .tx_pin   = GPIO_PIN(PA,12),
-        .mux      = GPIO_MUX_C,
-        .rx_pad   = UART_PAD_RX_1,
-        .tx_pad   = UART_PAD_TX_0,
-        .flags    = UART_FLAG_NONE,
+        .dev = &SERCOM2->USART,
+        .rx_pin = GPIO_PIN(PA, 13),
+        .tx_pin = GPIO_PIN(PA, 12),
+        .mux = GPIO_MUX_C,
+        .rx_pad = UART_PAD_RX_1,
+        .tx_pad = UART_PAD_TX_0,
+        .flags = UART_FLAG_NONE,
         .gclk_src = GCLK_CLKCTRL_GEN_GCLK0
     },
 };
@@ -174,19 +174,19 @@ static const uart_conf_t uart_config[] = {
 
 static const adc_conf_chan_t adc_channels[] = {
     /* port, pin, muxpos */
-    {GPIO_PIN(PA, 2), ADC_INPUTCTRL_MUXPOS_PIN0},       /* A0 */
-    {GPIO_PIN(PA, 3), ADC_INPUTCTRL_MUXPOS_PIN1},       /* A1 */
-    {GPIO_PIN(PB, 8), ADC_INPUTCTRL_MUXPOS_PIN2},       /* A2 */
-    {GPIO_PIN(PB, 9), ADC_INPUTCTRL_MUXPOS_PIN3},       /* A3 */
-    {GPIO_PIN(PA, 6), ADC_INPUTCTRL_MUXPOS_PIN6},       /* A4 */
-    {GPIO_PIN(PA, 7), ADC_INPUTCTRL_MUXPOS_PIN7},       /* A5 */
-    {GPIO_PIN(PA, 8), ADC_INPUTCTRL_MUXPOS_PIN16},      /* A6 */
-    {GPIO_PIN(PA, 9), ADC_INPUTCTRL_MUXPOS_PIN17},      /* A7 */
-    {GPIO_PIN(PA, 10), ADC_INPUTCTRL_MUXPOS_PIN18},     /* A8 */
-    {GPIO_PIN(PA, 11), ADC_INPUTCTRL_MUXPOS_PIN19},     /* A9 */
-    {GPIO_PIN(PB, 2), ADC_INPUTCTRL_MUXPOS_PIN10},      /* A10 */
-    {GPIO_PIN(PB, 3), ADC_INPUTCTRL_MUXPOS_PIN11},      /* A11 */
-    {GPIO_PIN(PA, 5), ADC_INPUTCTRL_MUXPOS_PIN5},       /* BAT_VOLT */
+    { GPIO_PIN(PA, 2), ADC_INPUTCTRL_MUXPOS_PIN0 },     /* A0 */
+    { GPIO_PIN(PA, 3), ADC_INPUTCTRL_MUXPOS_PIN1 },     /* A1 */
+    { GPIO_PIN(PB, 8), ADC_INPUTCTRL_MUXPOS_PIN2 },     /* A2 */
+    { GPIO_PIN(PB, 9), ADC_INPUTCTRL_MUXPOS_PIN3 },     /* A3 */
+    { GPIO_PIN(PA, 6), ADC_INPUTCTRL_MUXPOS_PIN6 },     /* A4 */
+    { GPIO_PIN(PA, 7), ADC_INPUTCTRL_MUXPOS_PIN7 },     /* A5 */
+    { GPIO_PIN(PA, 8), ADC_INPUTCTRL_MUXPOS_PIN16 },    /* A6 */
+    { GPIO_PIN(PA, 9), ADC_INPUTCTRL_MUXPOS_PIN17 },    /* A7 */
+    { GPIO_PIN(PA, 10), ADC_INPUTCTRL_MUXPOS_PIN18 },   /* A8 */
+    { GPIO_PIN(PA, 11), ADC_INPUTCTRL_MUXPOS_PIN19 },   /* A9 */
+    { GPIO_PIN(PB, 2), ADC_INPUTCTRL_MUXPOS_PIN10 },    /* A10 */
+    { GPIO_PIN(PB, 3), ADC_INPUTCTRL_MUXPOS_PIN11 },    /* A11 */
+    { GPIO_PIN(PA, 5), ADC_INPUTCTRL_MUXPOS_PIN5 },     /* BAT_VOLT */
 };
 
 #define ADC_0_CHANNELS                     (12)
@@ -199,13 +199,13 @@ static const adc_conf_chan_t adc_channels[] = {
  */
 static const spi_conf_t spi_config[] = {
     {
-        .dev      = &SERCOM0->SPI,
+        .dev = &SERCOM0->SPI,
         .miso_pin = GPIO_PIN(PA, 8),
         .mosi_pin = GPIO_PIN(PA, 10),
-        .clk_pin  = GPIO_PIN(PA, 11),
+        .clk_pin = GPIO_PIN(PA, 11),
         .miso_mux = GPIO_MUX_C,
         .mosi_mux = GPIO_MUX_C,
-        .clk_mux  = GPIO_MUX_C,
+        .clk_mux = GPIO_MUX_C,
         .miso_pad = SPI_PAD_MISO_0,
         .mosi_pad = SPI_PAD_MOSI_2_SCK_3
     }
@@ -220,13 +220,13 @@ static const spi_conf_t spi_config[] = {
  */
 static const i2c_conf_t i2c_config[] = {
     {
-        .dev      = &(SERCOM3->I2CM),
-        .speed    = I2C_SPEED_NORMAL,
-        .scl_pin  = GPIO_PIN(PA, 23),
-        .sda_pin  = GPIO_PIN(PA, 22),
-        .mux      = GPIO_MUX_C,
+        .dev = &(SERCOM3->I2CM),
+        .speed = I2C_SPEED_NORMAL,
+        .scl_pin = GPIO_PIN(PA, 23),
+        .sda_pin = GPIO_PIN(PA, 22),
+        .mux = GPIO_MUX_C,
         .gclk_src = GCLK_CLKCTRL_GEN_GCLK0,
-        .flags    = I2C_FLAG_NONE
+        .flags = I2C_FLAG_NONE
     }
 };
 #define I2C_NUMOF          ARRAY_SIZE(i2c_config)
@@ -261,9 +261,9 @@ static const i2c_conf_t i2c_config[] = {
  */
 static const sam0_common_usb_config_t sam_usbdev_config[] = {
     {
-        .dm     = GPIO_PIN(PA, 24),
-        .dp     = GPIO_PIN(PA, 25),
-        .d_mux  = GPIO_MUX_G,
+        .dm = GPIO_PIN(PA, 24),
+        .dp = GPIO_PIN(PA, 25),
+        .d_mux = GPIO_MUX_G,
         .device = &USB->DEVICE,
     }
 };
