@@ -27,8 +27,14 @@ void board_init(void)
     GPS_ENABLE_OFF;
     gpio_init(GPS_ENABLE_PIN, GPIO_OUT);
 
-    LED_RED_ON;
+    LED_RED_OFF;
     gpio_init(LED_RED_PIN, GPIO_OUT);
+
+    LED_BLUE_OFF;
+    gpio_init(LED_BLUE_PIN, GPIO_OUT);
+
+    LED_GREEN_OFF;
+    gpio_init(LED_GREEN_PIN, GPIO_OUT);
 
     /* initialize the CPU */
     cpu_init();
