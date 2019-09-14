@@ -5,6 +5,7 @@ INCLUDES += -I$(RIOTBOARD)/common/stm32/include
 PROGRAMMER ?= openocd
 # this board has an on-board ST-link adapter
 OPENOCD_DEBUG_ADAPTER ?= stlink
+STLINK_VERSION ?= 2
 
 # openocd programmer is supported
 PROGRAMMERS_SUPPORTED += openocd
